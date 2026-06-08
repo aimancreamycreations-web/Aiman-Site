@@ -1,0 +1,1992 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aiman Creamy Creation | Premium Gourmet Cakes & Boutique Patisserie</title>
+    
+    <!-- Tailwind CSS Play CDN for beautiful on-the-fly rendering -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Editorial Serif with Premium Clean Sans & Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Firebase Compat SDKs for live synchronization -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+
+    <!-- Tailwind Configuration matching the brand and adding key utilities -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                cream: '#FAF6F0',      /* Soft luxurious background */
+                dark: '#2B1E17',       /* Wealthy gourmet espresso dark */
+                pink: '#FF8E9E',       /* Premium romantic blossom pink */
+                rose: '#D65D7A',       /* Deeper accent rose red */
+                lightpink: '#FFF0F2',  /* Soft pastel ambient pink */
+                gold: '#D4A373',       /* Warm golden honey accent */
+                mint: '#A2D2FF',       /* Subtle pastel blue/mint accent */
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              serif: ['"Playfair Display"', 'serif'],
+              mono: ['"JetBrains Mono"', 'monospace']
+            },
+            boxShadow: {
+              'premium': '0 10px 30px -5px rgba(43, 30, 23, 0.05), 0 20px 40px -15px rgba(214, 93, 122, 0.08)',
+              'premium-hover': '0 20px 40px -5px rgba(43, 30, 23, 0.1), 0 30px 50px -10px rgba(214, 93, 122, 0.15)',
+              'glow': '0 0 20px rgba(255, 142, 158, 0.45)',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style type="text/css">
+      /* Custom Animations */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes pulse-soft {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.85; transform: scale(1.03); }
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes slide-up {
+        0% { transform: translateY(25px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+      @keyframes slide-right {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(0); }
+      }
+      @keyframes scale-up {
+        0% { transform: scale(0.95); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      
+      /* Heart Float Animations */
+      @keyframes float-heart-1 {
+        0% { transform: translateY(4px) scale(0.5) rotate(0deg); opacity: 0; }
+        30% { opacity: 0.95; }
+        100% { transform: translateY(-36px) scale(1) rotate(15deg); opacity: 0; }
+      }
+      @keyframes float-heart-2 {
+        0% { transform: translateY(4px) scale(0.4) rotate(0deg); opacity: 0; }
+        30% { opacity: 0.9; }
+        100% { transform: translateY(-48px) scale(1) rotate(-22deg); opacity: 0; }
+      }
+      @keyframes float-heart-3 {
+        0% { transform: translateY(4px) scale(0.6) rotate(0deg); opacity: 0; }
+        35% { opacity: 0.95; }
+        100% { transform: translateY(-30px) scale(0.8) rotate(12deg); opacity: 0; }
+      }
+      @keyframes float-heart-4 {
+        0% { transform: translateY(4px) scale(0.4) rotate(0deg); opacity: 0; }
+        40% { opacity: 0.8; }
+        100% { transform: translateY(-44px) scale(0.9) rotate(-10deg); opacity: 0; }
+      }
+
+      .animate-float-h1 {
+        animation: float-heart-1 3.5s infinite linear;
+      }
+      .animate-float-h2 {
+        animation: float-heart-2 2.8s infinite linear;
+      }
+      .animate-float-h3 {
+        animation: float-heart-3 4.2s infinite linear;
+      }
+      .animate-float-h4 {
+        animation: float-heart-4 3.1s infinite linear;
+      }
+
+      .animate-float {
+        animation: float 5s ease-in-out infinite;
+      }
+      .animate-pulse-soft {
+        animation: pulse-soft 3s ease-in-out infinite;
+      }
+      .animate-slide-up {
+        animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .animate-slide-right {
+        animation: slide-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .animate-scale-up {
+        animation: scale-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      
+      .gradient-hero {
+        background: linear-gradient(-45deg, #FAF6F0, #FFF0F2, #FAF6F0, #FFF9FA);
+        background-size: 400% 400%;
+        animation: gradient-shift 15s ease infinite;
+      }
+
+      /* Hide native scrollers but keep active */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Premium line clamp & font weights */
+      .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
+    </style>
+  </head>
+  
+  <body class="bg-brand-cream text-brand-dark min-h-screen font-sans flex flex-col antialiased selection:bg-brand-lightpink selection:text-brand-rose">
+
+    <!-- 1. DYNAMIC EXPORT / EXCLUSIVE DOWNLOAD BAR FOR USER & CLIENTS -->
+    <div class="bg-brand-dark text-white/95 px-4 py-2.5 sm:py-3 text-center text-xs border-b border-white/10 relative z-50">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5">
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-brand-pink animate-ping"></span>
+          <p class="font-medium tracking-tight">
+            <strong>Client Ready-to-Send Mode:</strong> Double-click this HTML file anywhere to view & order offline.
+          </p>
+        </div>
+        <div class="flex items-center space-x-3">
+          <button onclick="downloadHTMLFile()" class="bg-brand-pink hover:bg-brand-rose text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-md transition-all transform active:scale-95 flex items-center space-x-1 cursor-pointer">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Download Standalone .html File</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. HIGHLY STYLISH FLOATING HEADER -->
+    <header class="sticky top-0 z-40 bg-brand-cream/85 backdrop-blur-xl border-b border-brand-dark/5 transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Brand Signature Logo -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 rounded-2xl bg-brand-pink flex items-center justify-center text-white shadow-premium group-hover:scale-105 transition-all duration-300">
+            <i data-lucide="cake" class="w-6 h-6 animate-pulse-soft"></i>
+          </div>
+          <div>
+            <h1 class="font-serif font-extrabold text-brand-dark text-lg sm:text-xl tracking-tight leading-none">Aiman Creamy Creation</h1>
+            <span class="text-[9px] font-black uppercase tracking-widest text-brand-rose block mt-1">Gourmet Handmade Studio</span>
+          </div>
+        </a>
+
+        <!-- Premium Center Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider">
+          <a href="#storefront" class="text-brand-dark/70 hover:text-brand-rose transition-colors flex items-center space-x-1">
+            <span>Menu Collection</span>
+          </a>
+          <a href="javascript:void(0)" onclick="openWizardModal()" class="text-brand-dark/70 hover:text-brand-rose transition-colors flex items-center space-x-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-gold animate-spin" style="animation-duration: 25s"></i>
+            <span>Personal Designer Wizard</span>
+          </a>
+          <a href="#about" class="text-brand-dark/70 hover:text-brand-rose transition-colors">Our Standard</a>
+          <a href="javascript:void(0)" onclick="toggleAdminPanel()" class="text-brand-dark/50 hover:text-brand-dark transition-colors flex items-center space-x-1 border border-brand-dark/10 px-2.5 py-1 rounded-lg bg-white/45">
+            <i data-lucide="shield" class="w-3 h-3 text-brand-gold"></i>
+            <span>Studio Console</span>
+          </a>
+        </nav>
+
+        <!-- Right Sided Actions -->
+        <div class="flex items-center space-x-3">
+          <!-- Insta WhatsApp Direct Click Contact -->
+          <a href="https://wa.me/919319812658" target="_blank" class="hidden sm:flex items-center space-x-2 bg-brand-lightpink border border-brand-pink/20 px-3.5 py-2 rounded-xl text-brand-rose hover:bg-brand-pink hover:text-white transition-all duration-300">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span class="text-[11px] font-mono font-bold">+91 93198 12658</span>
+          </a>
+
+          <!-- Interactive Cart Basket Toggle -->
+          <button onclick="toggleCartDrawer(true)" class="relative p-3 bg-brand-dark hover:bg-brand-rose text-white hover:text-white rounded-2xl shadow-premium transition-all duration-300 transform active:scale-95 flex items-center space-x-2 cursor-pointer group">
+            <i data-lucide="shopping-basket" class="w-5 h-5 group-hover:rotate-6 transition-transform"></i>
+            <span class="hidden md:inline text-xs font-bold uppercase tracking-wider">My Basket</span>
+            <span id="cart-counter" class="absolute -top-1.5 -right-1.5 bg-brand-pink text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-brand-cream shadow-md transition-all scale-100">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. PREMIUM TOP DECORATIVE BANNER -->
+    <div class="bg-gradient-to-r from-brand-pink to-brand-rose text-white py-2 text-center text-[10px] sm:text-xs font-bold leading-normal tracking-wide px-4">
+      ✨ Fresh Customized Birthday & Anniversary Cakes crafted with Premium Non-Dairy Sweet Cream. Ordered from Studio, delivered to your door.
+    </div>
+
+    <!-- MAIN BODY CONTENT -->
+    <main class="flex-grow">
+
+      <!-- 4. LUXURIOUS HERO SECTION WITH FLOATING ACCESSORIES -->
+      <section class="relative overflow-hidden py-16 md:py-24 lg:py-28 gradient-hero">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,142,158,0.12),transparent_50%)]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <!-- Hero verbal columns -->
+            <div class="space-y-6 text-center lg:text-left">
+              <!-- Premium Pill Tag -->
+              <div class="inline-flex items-center space-x-2.5 bg-white border border-brand-pink/20 text-brand-rose rounded-full px-4 py-1.5 text-xs font-bold shadow-sm">
+                <span class="flex h-2 w-2 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-pink opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-rose"></span>
+                </span>
+                <span class="uppercase tracking-wider font-extrabold text-[10px]">100% Homemade Gourmet Excellence</span>
+              </div>
+
+              <!-- Main Hero Heading -->
+              <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-black tracking-tight text-brand-dark leading-[1.08]">
+                Baked With <span class="relative inline-block text-brand-rose font-serif font-black px-1.5 group cursor-pointer">Love<span class="absolute left-1/4 -top-1 text-red-500 text-xs select-none pointer-events-none animate-float-h1">❤️</span><span class="absolute left-2/4 -top-2 text-red-400 text-[9px] select-none pointer-events-none animate-float-h2" style="animation-delay: 0.4s;">❤️</span><span class="absolute left-3/4 -top-1 text-rose-500 text-[10px] select-none pointer-events-none animate-float-h3" style="animation-delay: 0.9s;">❤️</span><span class="absolute left-1/3 top-0 text-red-600 text-[8px] select-none pointer-events-none animate-float-h4" style="animation-delay: 1.5s;">❤️</span></span> &amp; <span class="text-brand-pink underline decoration-brand-pink/30">Creamy</span> Goodness
+              </h1>
+
+              <p class="text-sm sm:text-base text-brand-dark/75 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
+                Welcome to <strong>Aiman Creamy Creation</strong>! We handcraft lavish Customized Birthday themes, anniversary layer cakes, elegant celebration cookies, and individual pastries. Freshly baked in Rampur with love and high-tier gourmet ingredients.
+              </p>
+
+              <!-- Interactive CTA actions -->
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-3">
+                <a href="#storefront" class="w-full sm:w-auto bg-brand-dark hover:bg-brand-rose text-white font-bold text-xs uppercase tracking-wider py-4 px-8 rounded-2xl shadow-premium hover:shadow-premium-hover transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 cursor-pointer">
+                  <i data-lucide="compass" class="w-4.5 h-4.5"></i>
+                  <span>Browse Dessert Menu</span>
+                </a>
+
+                <button onclick="openWizardModal()" class="w-full sm:w-auto bg-white border border-brand-dark/10 hover:border-brand-pink/50 text-brand-dark hover:text-brand-rose font-bold text-xs uppercase tracking-wider py-4 px-7 rounded-2xl shadow-sm hover:shadow-premium transition-all flex items-center justify-center space-x-2 cursor-pointer group">
+                  <i data-lucide="sparkles" class="w-4.5 h-4.5 text-brand-pink group-hover:scale-110 transition-transform"></i>
+                  <span>Upload Design Reference</span>
+                </button>
+              </div>
+
+              <!-- Premium features bullets counters -->
+              <div class="grid grid-cols-3 gap-6 pt-10 border-t border-brand-dark/5 max-w-md mx-auto lg:mx-0">
+                <div>
+                  <h4 class="font-serif font-black text-xl text-brand-rose">100%</h4>
+                  <span class="text-[10px] text-brand-dark/60 font-bold uppercase tracking-wider block mt-0.5">Separate Eggless Kitchen</span>
+                </div>
+                <div>
+                  <h4 class="font-serif font-black text-xl text-brand-rose">Gourmet</h4>
+                  <span class="text-[10px] text-brand-dark/60 font-bold uppercase tracking-wider block mt-0.5">Real Fresh Butter & Fruit</span>
+                </div>
+                <div>
+                  <h4 class="font-serif font-black text-xl text-brand-rose">Direct</h4>
+                  <span class="text-[10px] text-brand-dark/60 font-bold uppercase tracking-wider block mt-0.5">WhatsApp Confirms</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Graphic Display Container -->
+            <div class="relative flex justify-center lg:justify-end">
+              <!-- Decorative background blobs -->
+              <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-pink/15 rounded-full blur-3xl animate-float"></div>
+              <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-brand-gold/15 rounded-full blur-2xl animate-float" style="animation-delay: 2.5s"></div>
+
+              <!-- Main image framing -->
+              <div class="relative w-80 sm:w-[420px] aspect-square rounded-[48px] bg-white p-3.5 shadow-premium hover:shadow-premium-hover transition-all duration-700 ease-out group overflow-hidden border border-brand-dark/5">
+                <div class="w-full h-full rounded-[38px] overflow-hidden relative">
+                  <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&auto=format&fit=crop&q=80" alt="Special Fudge Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2.5s] ease-out" referrerPolicy="no-referrer">
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent"></div>
+                  
+                  <!-- Bottom Info Tag -->
+                  <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-3xl border border-white/40 shadow-xl flex items-center justify-between">
+                    <div>
+                      <span class="text-[9px] font-black uppercase tracking-widest text-[#FF8E9E]">Chef Signature</span>
+                      <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">Belgian Fudge Tier Royale</h4>
+                    </div>
+                    <span class="h-10 w-10 rounded-2xl bg-brand-lightpink text-brand-rose flex items-center justify-center shadow-inner">
+                      <i data-lucide="cake" class="w-5 h-5"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. LAUNCH WIZARD INSPIRATIONAL CALL TO ACTION -->
+      <section class="bg-brand-dark text-brand-cream relative overflow-hidden py-12">
+        <div class="absolute inset-x-0 bottom-0 top-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(255,142,158,0.25),transparent_70%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div class="flex items-center space-x-5 text-center md:text-left flex-col md:flex-row gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center text-brand-pink flex-shrink-0">
+              <i data-lucide="sparkles" class="w-8 h-8 text-brand-pink animate-pulse"></i>
+            </div>
+            <div>
+              <h3 class="font-serif font-semibold text-xl sm:text-2xl text-white">Have a Customized Reference Image?</h3>
+              <p class="text-xs text-white/75 mt-1 max-w-xl">
+                Saw a dynamic cartoon character cake or luxurious wedding tiers on Pinterest/Instagram? Feed the reference mockup image inside our Custom Designer Wizard below to acquire pricing instantly!
+              </p>
+            </div>
+          </div>
+          <button onclick="openWizardModal()" class="w-full md:w-auto bg-brand-pink hover:bg-brand-rose text-white font-bold text-xs uppercase tracking-wider py-4 px-8 rounded-2xl shadow-premium transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+            Open Designer Wizard →
+          </button>
+        </div>
+      </section>
+
+      <!-- 6. HIGH-END DYNAMIC STOREFRONT -->
+      <section id="storefront" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 scroll-mt-6">
+        
+        <!-- Section layout headers -->
+        <div class="text-center space-y-4 max-w-xl mx-auto">
+          <span class="text-[10px] uppercase font-black tracking-widest text-[#D65D7A] bg-brand-lightpink px-3.5 py-1.5 rounded-full border border-brand-pink/30 inline-block">
+            Our Fresh Selection
+          </span>
+          <h2 class="font-serif font-extrabold text-brand-dark text-3xl sm:text-4xl md:text-5xl">
+            Choose Gourmet Delights
+          </h2>
+          <p class="text-xs sm:text-sm text-brand-dark/70 font-sans leading-relaxed">
+            Click on any pastry, cake, or batch of cookies below to begin customization. You can choose layer flavors, weights in pounds, eggless parameters, and custom writing messages.
+          </p>
+        </div>
+
+        <!-- Filter tabs for categories -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-10 pb-8 select-none" id="category-tabs">
+          <!-- Dynamically populated by JS to respect categories list -->
+        </div>
+
+        <!-- Main Product Presentation Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Dynamically populated card items -->
+        </div>
+
+      </section>
+
+      <!-- 7. OUR PREMIUM STANDARDS CARDS -->
+      <section id="about" class="bg-white border-y border-brand-dark/5 py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="text-center space-y-3 max-w-xl mx-auto">
+            <h3 class="font-serif font-extrabold text-brand-dark text-2xl sm:text-3xl">Handcrafted Cleanliness Guidelines</h3>
+            <p class="text-xs sm:text-sm text-brand-dark/65">
+              We stand apart due to our unwavering emphasis on visual accuracy, safety ingredients, and gourmet sweet balance.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Standard card 1 -->
+            <div class="group bg-brand-cream border border-brand-dark/5 rounded-3xl p-8 hover:bg-white hover:shadow-premium hover:-translate-y-1 transition-all duration-300">
+              <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-rose shadow-inner mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="shield-check" class="w-6.5 h-6.5"></i>
+              </div>
+              <h4 class="font-serif font-bold text-lg text-brand-dark mb-2">100% Guaranteed Vegetarian</h4>
+              <p class="text-xs text-brand-dark/70 leading-relaxed">
+                If eggless setup is requested, we bake in isolated bowls with vegetarian emulsifiers and clean flour setups, preserving strict safety and customer trust.
+              </p>
+            </div>
+
+            <!-- Standard card 2 -->
+            <div class="group bg-brand-cream border border-brand-dark/5 rounded-3xl p-8 hover:bg-white hover:shadow-premium hover:-translate-y-1 transition-all duration-300">
+              <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-rose shadow-inner mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="award" class="w-6.5 h-6.5"></i>
+              </div>
+              <h4 class="font-serif font-bold text-lg text-brand-dark mb-2">Artisanal Flavor Profiling</h4>
+              <p class="text-xs text-brand-dark/70 leading-relaxed">
+                We never use cheap synthetic syrups. Our sponges are doused in organic cocoa beans, premium vanilla pods, fresh fruits, and high-cream cocoa butter.
+              </p>
+            </div>
+
+            <!-- Standard card 3 -->
+            <div class="group bg-brand-cream border border-brand-dark/5 rounded-3xl p-8 hover:bg-white hover:shadow-premium hover:-translate-y-1 transition-all duration-300">
+              <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-rose shadow-inner mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="message-square" class="w-6.5 h-6.5"></i>
+              </div>
+              <h4 class="font-serif font-bold text-lg text-brand-dark mb-2">Direct Chef Contact Line</h4>
+              <p class="text-xs text-brand-dark/70 leading-relaxed">
+                No complex bots. Your designs are discussed directly with Chef Aiman. Simply chat through WhatsApp with photos to secure immediate modifications.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 8. STUDIO ADMIN CONSOLE (COLLAPSED DEFAULT, TOGGLING FROM NAVIGATION) -->
+      <section id="admin-panel-container" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-brand-dark/10 scroll-mt-10 animate-slide-up">
+        
+        <div class="bg-white rounded-3xl border border-brand-dark/10 shadow-premium p-6 sm:p-8 space-y-8">
+          
+          <!-- Admin header block -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-brand-cream pb-6">
+            <div class="flex items-center space-x-3">
+              <div class="p-3 bg-brand-dark/5 rounded-2xl text-brand-dark">
+                <i data-lucide="shield" class="w-6.5 h-6.5 text-[#D4A373]"></i>
+              </div>
+              <div>
+                <h3 class="font-serif font-extrabold text-[#2B1E17] text-2xl">Studio Management Console</h3>
+                <p class="text-xs text-brand-dark/65">Manage products list from memory or review client order records in mock simulator.</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button onclick="resetToFactorySettings()" class="border border-red-200 hover:bg-red-50 text-red-500 font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all cursor-pointer">
+                Reset Store Mock Data
+              </button>
+              <button onclick="toggleAdminPanel()" class="bg-brand-dark hover:bg-brand-dark/95 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all cursor-pointer">
+                Close Console
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab bar internally -->
+          <div class="flex border-b border-brand-cream/80 max-w-md">
+            <button onclick="setAdminTab('inventory')" id="admin-tab-inventory" class="flex-1 py-3 text-xs font-bold uppercase tracking-wider border-b-2 border-brand-rose text-brand-rose">
+              🎂 Store Catalogs
+            </button>
+            <button onclick="setAdminTab('orders')" id="admin-tab-orders" class="relative flex-1 py-3 text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-brand-dark/60 hover:text-brand-dark">
+              💼 Mock Order Logs
+              <span id="admin-orders-badge" class="absolute top-2.5 right-1 px-1.5 py-0.5 bg-brand-rose text-white text-[9px] font-black rounded-full leading-none">0</span>
+            </button>
+          </div>
+
+          <!-- ADMIN SECTION A: CATALOG INVENTORY WRAPPERS -->
+          <div id="admin-inventory-section" class="space-y-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              
+              <!-- Form block adding a new product -->
+              <div class="lg:col-span-1 bg-brand-cream/40 p-6 rounded-2xl border border-brand-dark/5 space-y-4">
+                <h4 class="font-serif font-bold text-[#2B1E17] text-base mb-2">Create New Baked Item</h4>
+                
+                <form id="add-product-form" onsubmit="handleAddNewProduct(event)" class="space-y-3.5">
+                  <div class="space-y-1">
+                    <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Item Name *</label>
+                    <input type="text" id="admin-name" required placeholder="e.g. Dream Oreo Vanilla Cake" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none bg-white">
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Category *</label>
+                    <select id="admin-cat" required class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none bg-white font-bold">
+                      <option value="Cakes">🎂 Cakes</option>
+                      <option value="Pastries">🍓 Pastries</option>
+                      <option value="Cookies">🍪 Cookies</option>
+                      <option value="Cupcakes">🧁 Cupcakes</option>
+                    </select>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="space-y-1">
+                      <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Base Price (₹) *</label>
+                      <input type="number" id="admin-price" required placeholder="e.g. 450" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none bg-white font-bold">
+                    </div>
+                    <div class="space-y-1">
+                      <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Popular Tag?</label>
+                      <select id="admin-popular" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none bg-white font-bold">
+                        <option value="false">No Tag</option>
+                        <option value="true">Bestseller ⭐</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Gourmet Description *</label>
+                    <textarea id="admin-desc" required rows="3" placeholder="Explain sweetness, coating levels, or ingredients..." class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none bg-white resize-none"></textarea>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Display Unsplash Photo Url (or default)</label>
+                    <input type="url" id="admin-img" placeholder="https://images.unsplash.com/photo-..." class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none bg-white">
+                    <p class="text-[9px] text-brand-dark/40 font-semibold leading-relaxed mt-0.5">Leave empty to auto-assign a random gorgeous baking image.</p>
+                  </div>
+
+                  <button type="submit" class="w-full bg-brand-rose hover:bg-brand-rose/95 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl shadow-md transition-all cursor-pointer">
+                    Publish Online Catalog Item
+                  </button>
+                </form>
+              </div>
+
+              <!-- Live products listing manager table -->
+              <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-serif font-bold text-[#2B1E17] text-base">Active Registered Items</h4>
+                  <span id="admin-inventory-counter" class="text-xs font-mono font-bold bg-brand-lightpink text-brand-rose px-3 py-1 rounded-xl">0 Items Active</span>
+                </div>
+
+                <div class="overflow-x-auto border border-brand-dark/5 rounded-2xl">
+                  <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr class="bg-brand-cream text-brand-dark/60 font-bold border-b border-brand-dark/5">
+                        <th class="p-4">Dish details</th>
+                        <th class="p-4">Category</th>
+                        <th class="p-4 text-right">Base pricing</th>
+                        <th class="p-4 text-center">Operation</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-inventory-tbody">
+                      <!-- Populated dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- ADMIN SECTION B: CLIENT SIMULATOR ORDER LOGS -->
+          <div id="admin-orders-section" class="space-y-4 hidden animate-fade-in">
+            <h4 class="font-serif font-bold text-[#2B1E17] text-base">Client Order Tracking Records (Local Session Database)</h4>
+            
+            <div class="overflow-x-auto border border-brand-dark/5 rounded-2xl">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="bg-brand-cream text-brand-dark/60 font-bold border-b border-brand-dark/5">
+                    <th class="p-4">Invoice Id</th>
+                    <th class="p-4">Customer specs</th>
+                    <th class="p-4">Fulfillment date</th>
+                    <th class="p-4">Items / Custom requests</th>
+                    <th class="p-4 text-right">Total Price</th>
+                    <th class="p-4 text-center">Status state</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-orders-tbody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty tracker -->
+            <div id="admin-orders-empty-state" class="text-center py-10 space-y-2">
+              <i data-lucide="inbox" class="w-10 h-10 mx-auto text-brand-dark/25"></i>
+              <p class="text-xs text-brand-dark/50 font-bold">No simulate orders logged during this session.</p>
+              <p class="text-[10px] text-brand-dark/40 max-w-[300px] mx-auto">Fill checkout form in cart or custom wizard to generate checkout logs here dynamically!</p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- 9. HIGHLY STYLISH FOOTER -->
+    <footer class="bg-brand-dark text-white/90 border-t border-white/5 relative mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-white/10">
+          
+          <!-- Brand intro -->
+          <div class="space-y-4">
+            <h3 class="font-serif font-extrabold text-[#FFFBF7] text-xl">Aiman Creamy Creation</h3>
+            <p class="text-xs text-white/70 leading-relaxed font-sans max-w-sm">
+              Your elite, premium home-baked patisserie. We engineer majestic multi-tier celebration cakes, rich velvet pastries, and premium melt-in-mouth gourmet cookies. Delivered fresh to light up your special gatherings.
+            </p>
+            <div class="flex items-center space-x-2 text-xs font-bold text-green-300 font-sans">
+              <span class="h-2.5 w-2.5 rounded-full bg-green-400 animate-ping"></span>
+              <span>Accepting orders & designs today</span>
+            </div>
+          </div>
+
+          <!-- Contacts, Details -->
+          <div class="space-y-3.5">
+            <h4 class="font-serif font-bold text-white text-base">Studio Support & Slots</h4>
+            <p class="text-xs text-white/75 font-sans"><i data-lucide="phone" class="w-3.5 h-3.5 inline mr-2 text-[#FF8E9E]"></i> Contact Support: <strong class="text-[#FF8E9E]">+91 93198 12658</strong></p>
+            <p class="text-xs text-white/75 font-sans"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline mr-2 text-[#FF8E9E]"></i> Kitchen Studio: <strong>Rampur, Uttar Pradesh, India</strong></p>
+            <p class="text-xs text-white/75 font-sans"><i data-lucide="clock" class="w-3.5 h-3.5 inline mr-2 text-[#FF8E9E]"></i> Active Deliveries: <strong>10:00 AM - 10:00 PM (Every Day)</strong></p>
+          </div>
+
+          <!-- Links column -->
+          <div class="space-y-3.5">
+            <h4 class="font-serif font-bold text-white text-base">Sweet Catalog Categories</h4>
+            <div class="flex flex-col space-y-2.5 text-xs font-bold text-white/75 font-sans">
+              <a href="#storefront" onclick="filterCategorySelection('Cakes')" class="hover:text-brand-pink transition-colors">🎂 High-End Celebration Cakes</a>
+              <a href="#storefront" onclick="filterCategorySelection('Pastries')" class="hover:text-brand-pink transition-colors">🍓 Fresh Glazed Pastries</a>
+              <a href="#storefront" onclick="filterCategorySelection('Cookies')" class="hover:text-brand-pink transition-colors">🍪 Luxury Crunchy Cookies</a>
+              <a href="javascript:void(0)" onclick="openWizardModal()" class="hover:text-brand-pink transition-colors flex items-center space-x-1">
+                <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold"></i>
+                <span>Reference Design Custom Uplink</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer bottom parameters -->
+        <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] text-white/40 font-bold font-mono">
+          <p>© 2026 Aiman Creamy Creation. Dedicated to luxurious taste and aesthetics.</p>
+          <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+            <span class="hover:text-white/60 cursor-pointer">Security Standards</span>
+            <span>•</span>
+            <span class="hover:text-white/60 cursor-pointer">Vegetarian Kitchen Pledge</span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- 10. BASKET DRAWER OVERLAY -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 bg-brand-dark/60 backdrop-blur-sm z-50 transition-all duration-300 opacity-0 pointer-events-none" onclick="toggleCartDrawer(false)">
+      
+      <!-- Drawer Panel Content -->
+      <div id="cart-drawer-panel" class="absolute right-0 top-0 bottom-0 max-w-md w-full bg-brand-cream shadow-2xl flex flex-col h-full translate-x-full transition-transform duration-350 ease-out" onclick="event.stopPropagation()">
+        
+        <!-- Drawer Header -->
+        <div class="p-6 border-b border-brand-dark/5 flex items-center justify-between bg-white">
+          <div class="flex items-center space-x-3">
+            <div class="p-3 bg-brand-lightpink rounded-2xl text-brand-rose">
+              <i data-lucide="shopping-bag" class="w-5.5 h-5.5"></i>
+            </div>
+            <div>
+              <h3 class="font-serif font-extrabold text-brand-dark text-base">Your Sweet Basket</h3>
+              <p class="text-[9px] uppercase tracking-wider font-extrabold text-brand-rose mt-0.5">Custom items pricing generated</p>
+            </div>
+          </div>
+          <button onclick="toggleCartDrawer(false)" class="p-2 text-brand-dark/40 hover:text-brand-rose rounded-full bg-brand-cream transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Scrollable items selection block -->
+        <div class="p-6 overflow-y-auto flex-grow space-y-4 no-scrollbar" id="cart-items-container">
+          <!-- Populated dynamically. Fallback empty state is: -->
+          <div id="cart-empty-state" class="text-center py-20 space-y-4">
+            <div class="w-20 h-20 bg-brand-lightpink text-brand-pink rounded-full flex items-center justify-center mx-auto shadow-inner animate-float">
+              <i data-lucide="shopping-basket" class="w-10 h-10"></i>
+            </div>
+            <div>
+              <h4 class="font-serif font-bold text-brand-dark text-base">Your basket is completely empty!</h4>
+              <p class="text-[10px] text-brand-dark/50 max-w-[220px] mx-auto mt-1 leading-relaxed">Browse our delicious list configurations and custom design wizard to assemble your dream sweet package.</p>
+            </div>
+            <button onclick="toggleCartDrawer(false); window.location.href='#storefront'" class="bg-brand-dark hover:bg-brand-rose text-white text-xs font-bold uppercase tracking-wider py-3 px-6 rounded-xl shadow-md cursor-pointer">
+              Explore Baked Goods
+            </button>
+          </div>
+
+          <!-- List of items in cart -->
+          <div id="cart-items-list" class="space-y-4 hidden"></div>
+        </div>
+
+        <!-- Checkout Bottom Container -->
+        <div id="cart-checkout-block" class="p-6 border-t border-brand-dark/5 bg-white space-y-4 hidden">
+          <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="text-[9px] uppercase font-black tracking-widest text-brand-rose">Fulfillment Specifications</h4>
+              <span class="text-[9px] font-mono text-brand-dark/40">* Required inputs</span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="grid grid-cols-2 gap-2">
+                <input type="text" id="cust-name" required placeholder="Full Name *" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none font-sans text-brand-dark bg-brand-cream/40">
+                <input type="tel" id="cust-phone" required placeholder="WhatsApp Mobile *" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none font-sans text-brand-dark bg-brand-cream/40">
+              </div>
+              
+              <textarea id="cust-address" required rows="2" placeholder="Full Delivery/Pickup Address in Rampur *" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none font-sans text-brand-dark bg-brand-cream/40 resize-none"></textarea>
+              
+              <div class="grid grid-cols-2 gap-2">
+                <input type="date" id="delivery-date" required class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none font-sans text-brand-dark bg-brand-cream/40">
+                <select id="delivery-time" required class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none font-sans text-brand-dark bg-brand-cream/40 font-bold">
+                  <option value="" disabled selected>Preferred Slot *</option>
+                  <option value="11:00 AM - 01:00 PM">Morning (11AM - 1PM)</option>
+                  <option value="02:00 PM - 05:00 PM">Afternoon (2PM - 5PM)</option>
+                  <option value="06:00 PM - 08:00 PM">Evening (6PM - 8PM)</option>
+                  <option value="08:00 PM - 10:00 PM">Late Night (8PM - 10PM)</option>
+                </select>
+              </div>
+
+              <input type="text" id="cust-notes" placeholder="Any Special Instructions for Chef? (Optional)" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-dark/10 focus:border-brand-pink focus:outline-none font-sans text-brand-dark bg-brand-cream/40">
+            </div>
+
+            <!-- Pricing summary checkout trigger -->
+            <div class="pt-4 border-t border-brand-cream-dark/10 flex justify-between items-center bg-white">
+              <div>
+                <span class="text-[9px] uppercase font-bold text-brand-dark/50">Total Bill Value:</span>
+                <p class="text-2xl font-serif font-black text-brand-rose" id="cart-total-price">₹0</p>
+              </div>
+              <button type="submit" class="bg-brand-pink hover:bg-brand-rose text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-2xl shadow-lg transition-all transform active:scale-95 flex items-center space-x-2 cursor-pointer">
+                <i data-lucide="shopping-bag" class="w-4.5 h-4.5 text-white"></i>
+                <span>Place Order</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 11. ITEM CUSTOMIZATION POPUP MODAL -->
+    <div id="customize-modal-overlay" class="fixed inset-0 bg-brand-dark/60 backdrop-blur-sm z-50 transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center p-4" onclick="closeCustomizeModal()">
+      
+      <!-- Modal Panel Dialog -->
+      <div id="customize-modal-panel" class="bg-brand-cream rounded-[36px] max-w-lg w-full overflow-hidden shadow-2xl border border-brand-dark/5 flex flex-col max-h-[90vh] scale-95 transition-all duration-300 transform opacity-0" onclick="event.stopPropagation()">
+        
+        <!-- Context Header -->
+        <div class="p-6 bg-white border-b border-brand-dark/5 flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <span class="p-3 bg-brand-lightpink text-brand-rose rounded-2xl shadow-inner">
+              <i data-lucide="sparkles" class="w-5.5 h-5.5"></i>
+            </span>
+            <div>
+              <h3 class="font-serif font-extrabold text-brand-dark text-base" id="modal-product-name">Customize Dessert</h3>
+              <p class="text-[9px] uppercase tracking-wider font-extrabold text-brand-rose mt-0.5">Premium baking variables available</p>
+            </div>
+          </div>
+          <button onclick="closeCustomizeModal()" class="p-2 text-brand-dark/40 hover:text-brand-rose bg-brand-cream rounded-full transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-4.5 h-4.5"></i>
+          </button>
+        </div>
+
+        <!-- Scrollable content fields selection -->
+        <div class="p-6 overflow-y-auto space-y-6 text-xs flex-grow no-scrollbar" id="modal-product-body">
+          
+          <!-- Image and description row -->
+          <div class="flex items-start space-x-4 pb-4 border-b border-brand-dark/5">
+            <img id="modal-product-img" src="" alt="" class="w-24 h-24 rounded-2xl object-cover border border-brand-dark/5 shadow-md">
+            <div class="space-y-1.5 flex-grow">
+              <span id="modal-product-category" class="bg-brand-lightpink text-brand-rose text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full inline-block">Category</span>
+              <p id="modal-product-desc" class="text-[11px] text-brand-dark/70 leading-relaxed font-sans font-medium line-clamp-3"></p>
+            </div>
+          </div>
+
+          <!-- Configuration Fields -->
+          <div class="space-y-4">
+            
+            <!-- 1. Flavor selection -->
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Pick Gourmet Sponge Flavor *</label>
+              <select id="modal-flavor" class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-bold text-brand-dark focus:border-brand-pink focus:outline-none bg-white shadow-xs">
+                <!-- Loaded dynamically -->
+              </select>
+            </div>
+
+            <!-- Weights & Quantities parameters grid -->
+            <div class="grid grid-cols-2 gap-3">
+              
+              <!-- 2. Weight Select (Only shown for Cakes Category) -->
+              <div class="space-y-1.5" id="weight-selector-block">
+                <label id="weight-label" class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Cake Size / Weight Weight *</label>
+                <select id="modal-pound" class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-bold text-brand-dark focus:border-brand-pink focus:outline-none bg-white shadow-xs" onchange="calculateModalPrice()">
+                  <option value="1">1.0 Pound (Perfect celebration size)</option>
+                  <option value="1.5">1.5 Pound (Slightly larger treat)</option>
+                  <option value="2">2.0 Pound (Grand Medium Tier)</option>
+                  <option value="3">3.0 Pound (Extravagant double tier)</option>
+                  <option value="4">4.0+ Pound (Mega Royale design)</option>
+                </select>
+              </div>
+
+              <!-- 3. Quantity input -->
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Quantity Selection *</label>
+                <input type="number" id="modal-qty" min="1" max="100" value="1" class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-bold text-brand-dark focus:border-brand-pink focus:outline-none bg-white shadow-xs" onchange="calculateModalPrice()">
+              </div>
+
+            </div>
+
+            <!-- 4. Eggless upgrade logic toggle -->
+            <div class="pt-2">
+              <label class="inline-flex items-start space-x-3 cursor-pointer select-none">
+                <input type="checkbox" id="modal-eggless" class="w-4.5 h-4.5 rounded text-brand-rose focus:ring-brand-pink border-brand-dark/10 bg-white mt-0.5" onchange="calculateModalPrice()">
+                <div>
+                  <span class="text-xs font-bold text-brand-dark">Eggless Preparation Desired (+₹50)</span>
+                  <p class="text-[10px] text-emerald-600 font-semibold leading-relaxed mt-0.5">• Isolated vegetarian preparation layout guaranteed.</p>
+                </div>
+              </label>
+            </div>
+
+            <!-- 5. Tag lines or script message on cakes -->
+            <div class="space-y-1.5" id="cake-message-block">
+              <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Message Script Writing on Top</label>
+              <input type="text" id="modal-message" placeholder="e.g. Happy 25th Anniversary John! or Congratulations!" class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-sans text-brand-dark focus:border-brand-pink focus:outline-none bg-white shadow-xs">
+              <p class="text-[9px] text-brand-dark/40 font-bold tracking-tight">* Hand-lettered precisely using buttercream or chocolate piping.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Footer containing Pricing and Add To Cart Trigger -->
+        <div class="p-6 bg-white border-t border-brand-dark/5 flex items-center justify-between">
+          <div>
+            <span class="text-[9px] uppercase font-bold text-brand-dark/50">Calculated Value:</span>
+            <p class="text-2xl font-serif font-black text-brand-rose" id="modal-price">₹0</p>
+          </div>
+          <button onclick="addModalItemToCart()" class="bg-brand-pink hover:bg-brand-rose text-white font-bold text-xs uppercase tracking-wider py-4 px-6 rounded-2xl shadow-premium transform active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="plus" class="w-4.5 h-4.5"></i>
+            <span>Add to Basket</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 12. CUSTOM INSPIRED REFERENCE PHOTO DESIGN MODAL (WIZARD) -->
+    <div id="wizard-modal-overlay" class="fixed inset-0 bg-brand-dark/60 backdrop-blur-sm z-50 transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center p-4" onclick="closeWizardModal()">
+      
+      <!-- Wizard panel body -->
+      <div id="wizard-modal-panel" class="bg-brand-cream rounded-[36px] max-w-lg w-full overflow-hidden shadow-2xl border border-brand-dark/5 flex flex-col max-h-[90vh] scale-95 transition-all duration-300 transform opacity-0" onclick="event.stopPropagation()">
+        
+        <!-- Header aspect -->
+        <div class="p-6 bg-white border-b border-brand-dark/5 flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <span class="p-3 bg-brand-lightpink text-brand-rose rounded-2xl shadow-inner">
+              <i data-lucide="sparkles" class="w-5.5 h-5.5"></i>
+            </span>
+            <div>
+              <h3 class="font-serif font-extrabold text-brand-dark text-base">Inspired Designer Cake Wizard</h3>
+              <p class="text-[9px] uppercase tracking-wider font-extrabold text-[#D65D7A] mt-0.5">Upload personal reference pictures for custom baking</p>
+            </div>
+          </div>
+          <button onclick="closeWizardModal()" class="p-2 text-brand-dark/40 hover:text-brand-rose bg-brand-cream rounded-full transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-4.5 h-4.5"></i>
+          </button>
+        </div>
+
+        <!-- Scrollable Form Inputs -->
+        <div class="p-6 overflow-y-auto space-y-5 text-xs flex-grow no-scrollbar">
+          
+          <!-- Image upload and preview layout -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Upload Reference Cake Photo *</label>
+              <span class="text-[9px] font-semibold text-brand-rose">• PNG, JPG supportable</span>
+            </div>
+
+            <!-- Upload drag and selection box -->
+            <div class="border-2 border-dashed border-brand-pink/35 bg-white rounded-3xl p-6 text-center space-y-3 relative group hover:border-brand-rose transition-colors" id="wizard-dropzone">
+              <input type="file" id="wizard-file-input" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="previewWizardImage(event)">
+              
+              <!-- Placeholder details -->
+              <div id="wizard-placeholder" class="space-y-2 flex flex-col items-center">
+                <div class="w-12 h-12 bg-brand-lightpink rounded-2xl flex items-center justify-center text-brand-rose">
+                  <i data-lucide="image-plus" class="w-6.5 h-6.5"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-brand-dark block">Browse or Drop Picture</span>
+                  <p class="text-[9px] text-brand-dark/40 max-w-[240px] mx-auto mt-1">Tap/drag the reference design file here to instantly load image preview on this device.</p>
+                </div>
+              </div>
+
+              <!-- Preview container -->
+              <div id="wizard-preview-container" class="hidden relative max-w-[160px] mx-auto rounded-2xl overflow-hidden border border-brand-dark/15 shadow-md aspect-square bg-brand-cream">
+                <img id="wizard-preview" src="" alt="Live reference preview" class="w-full h-full object-cover">
+                <button type="button" class="absolute top-1.5 right-1.5 p-1 bg-brand-rose hover:bg-brand-dark text-white rounded-full shadow transition-colors" onclick="clearWizardImage(event)">
+                  <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product dynamic specifications -->
+          <div class="space-y-4">
+            
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Details / Special Guidelines for Chef *</label>
+              <textarea id="wizard-desc" required rows="3" placeholder="Explain details, like coloring, cartoon name writing tags, chocolate curls density levels or other custom options..." class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-sans text-brand-dark bg-white focus:border-brand-pink focus:outline-none shadow-xs resize-none"></textarea>
+            </div>
+
+            <!-- Selection rows -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Base Category setup *</label>
+                <select id="wizard-cat" class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-bold text-brand-dark focus:border-brand-pink focus:outline-none bg-white shadow-xs" onchange="toggleWizardPoundField()">
+                  <option value="Cakes">🎂 Custom Cake</option>
+                  <option value="Cupcakes">🧁 Designer Cupcakes</option>
+                  <option value="Cookies">🍪 Gourmet Cookies Base</option>
+                  <option value="Pastries">🍓 Exclusive Pastries Treat</option>
+                </select>
+              </div>
+
+              <div class="space-y-1.5" id="wizard-pound-block">
+                <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Desired Weight / Size *</label>
+                <select id="wizard-pound" class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-bold text-[#2B1E17] focus:border-brand-pink focus:outline-none bg-white shadow-xs" onchange="calculateWizardPrice()">
+                  <option value="1.5">1.5 Pound (Standard Small Tier)</option>
+                  <option value="2">2.0 Pound (Eminent Anniversary Size)</option>
+                  <option value="3">3.0 Pound (Fabulous double layer design)</option>
+                  <option value="4">4.0 Pound (Royal Heavy Tier custom setup)</option>
+                  <option value="5">5.0+ Pound (Extra majestic bridal wedding size)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Flavor & vegetarian tag layers -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-black uppercase tracking-wider text-brand-dark/50">Initial Layers Flavor *</label>
+                <select id="wizard-flavor" class="w-full px-4 py-3 rounded-xl border border-brand-dark/10 text-xs font-bold text-brand-dark focus:border-brand-pink focus:outline-none bg-white shadow-xs">
+                  <option value="Chocolate Fudge">Gourmet Chocolate Fudge</option>
+                  <option value="Red Velvet Cream">Classic Red Velvet Cream</option>
+                  <option value="Pineapple Cream Classic">Pineapple Cream Delight</option>
+                  <option value="Classic Butterscotch">Crunchy Butterscotch Original</option>
+                  <option value="Vanilla Strawberry Bliss">Velvety Vanilla Strawberry</option>
+                  <option value="Black Forest Original">Original Black Forest sponge</option>
+                  <option value="Custom Flavor Combo">Custom Flavor (Explain details)</option>
+                </select>
+              </div>
+
+              <div class="flex items-center pt-5">
+                <label class="inline-flex items-start space-x-2.5 cursor-pointer select-none">
+                  <input type="checkbox" id="wizard-eggless" class="w-4.5 h-4.5 rounded text-brand-rose focus:ring-brand-pink border-brand-dark/10 bg-white mt-0.5" onchange="calculateWizardPrice()">
+                  <div>
+                    <span class="text-xs font-bold text-brand-dark">Eggless Option Desired (+₹100)</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Wizard Action buttons and pricing estimate -->
+        <div class="p-6 bg-white border-t border-brand-dark/5 flex items-center justify-between">
+          <div>
+            <span class="text-[9px] uppercase font-bold text-brand-dark/50">Estimated Base Cost:</span>
+            <p class="text-2xl font-serif font-black text-brand-rose" id="wizard-price">₹1250</p>
+          </div>
+          <button onclick="commitWizardToCart()" class="bg-brand-dark hover:bg-brand-rose text-white font-bold text-xs uppercase tracking-wider py-4 px-6 rounded-2xl shadow-premium transform active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="plus" class="w-4.5 h-4.5"></i>
+            <span>Add Custom Design To Basket</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 13. DYNAMIC SUSPENDED REUSABLE TOAST NOTICES -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 bg-[#2B1E17] text-white py-3 px-5 rounded-2xl shadow-glow flex items-center space-x-3 pointer-events-none transform translate-y-20 opacity-0 transition-all duration-300">
+      <div class="p-1.5 bg-brand-pink text-white rounded-lg" id="toast-icon-container">
+        <i data-lucide="check" class="w-4 h-4" id="toast-icon"></i>
+      </div>
+      <p id="toast-text" class="text-xs font-bold tracking-tight"></p>
+    </div>
+
+    <!-- MAIN JAVASCRIPT APP LOGIC LAYER -->
+    <script>
+      // 1. FACTORY FALLBACK PRODUCT SPECIFICATIONS FROM DATA.TS
+      const DEFAULT_PRODUCTS_LIST = [
+        {
+          id: '1',
+          name: 'Royale Chocolate Fudge Cake',
+          description: 'Layers of premium, moist cocoa sponge smothered in gourmet dark chocolate fudge ganache and decorated with beautiful handcrafted cocoa curls.',
+          pricePerPound: 450,
+          category: 'Cakes',
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Chocolate Fudge', 'Black Forest Original', 'Oreo Cookies & Cream'],
+          popular: true
+        },
+        {
+          id: '2',
+          name: 'Signature Velvet Crimson Cake',
+          description: 'Gorgeous layers of striking red velvet sponge paired with velvety smooth premium cream cheese frosting and sprinkled with delicate crimson crumbs.',
+          pricePerPound: 550,
+          category: 'Cakes',
+          image: 'https://images.unsplash.com/photo-1586985289688-ca9cf47d3e6e?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Red Velvet Cream', 'Vanilla Strawberry Bliss'],
+          popular: true
+        },
+        {
+          id: '3',
+          name: 'Glazed Strawberry Pastry',
+          description: 'Crisp, flaky French puff pastry layered with organic vanilla bean custard and topped with fresh, glazed ruby strawberries. Elegant individual treat!',
+          pricePerPound: 90,
+          category: 'Pastries',
+          image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Vanilla Strawberry Bliss', 'Pineapple Cream Classic'],
+          popular: false
+        },
+        {
+          id: '4',
+          name: 'Warm Belgian Chocolate Chip Cookies',
+          description: 'Freshly baked buttery cookies loaded with premium Belgian dark, milk, and white chocolate chunks. Soft core with golden-crisp margins.',
+          pricePerPound: 45,
+          category: 'Cookies',
+          image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Chocolate Fudge'],
+          popular: true
+        },
+        {
+          id: '5',
+          name: 'Classic Butterscotch Crunch Cake',
+          description: 'Decadent vanilla sponge infused with organic butterscotch praline caramel crunch, covered in whipped icing and roasted butter-cashews.',
+          pricePerPound: 400,
+          category: 'Cakes',
+          image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13636?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Classic Butterscotch'],
+          popular: false
+        },
+        {
+          id: '6',
+          name: 'Oreo Cookies & Cream Cupcakes',
+          description: 'Soft fudge cupcakes loaded with crushed chocolate Sandwich Oreo cookies inside batter, topped with silky cookies-and-cream piped swirls.',
+          pricePerPound: 70,
+          category: 'Cupcakes',
+          image: 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Oreo Cookies & Cream', 'Chocolate Fudge'],
+          popular: true
+        },
+        {
+          id: '7',
+          name: 'Pineapple Fruit Bliss Gateau',
+          description: 'Traditional light vanilla sponge drenched with sweet pineapple cherry juice, frosted with rich creme, cocktail fruit chips, and wild cherry spheres.',
+          pricePerPound: 380,
+          category: 'Cakes',
+          image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Pineapple Cream Classic'],
+          popular: false
+        },
+        {
+          id: '8',
+          name: 'Fudge Choco Truffle Cupcakes',
+          description: 'Ultra rich cocoa cake core with molten dark chocolate ganache center, topped with chocolate sprinkles and velvet dusting.',
+          pricePerPound: 80,
+          category: 'Cupcakes',
+          image: 'https://images.unsplash.com/photo-1614707267537-b85acf00c4b8?w=600&auto=format&fit=crop&q=80',
+          flavors: ['Chocolate Fudge'],
+          popular: false
+        }
+      ];
+
+      // 2. RUNTIME ACCUMULATED STATE VARIABLES
+      let products = [];
+      let orders = [];
+      let basket = [];
+      let activeStoreCategory = 'All';
+      let selectedProductConfig = null;
+      let wizardBase64Source = '';
+      let adminActiveTab = 'inventory';
+
+      // 3. STARTUP CONFIGURATION CONTROLLERS
+      // Firebase Live Synchronizer Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAdY_yl7OHRNvV21m4ZD7uGQrpzBpFtxzM",
+        authDomain: "wide-outlook-1lkqp.firebaseapp.com",
+        projectId: "wide-outlook-1lkqp",
+        storageBucket: "wide-outlook-1lkqp.firebasestorage.app",
+        messagingSenderId: "540989836249",
+        appId: "1:540989836249:web:658e56a2eddc0ceeca67c8"
+      };
+
+      let db = null;
+      try {
+        if (typeof firebase !== 'undefined') {
+          firebase.initializeApp(firebaseConfig);
+          db = firebase.app().firestore("ai-studio-c6a902aa-23ea-409f-9faf-10ef12ab271f");
+          console.log("Firebase initialized successfully in standalone HTML with custom DB.");
+        }
+      } catch (e) {
+        console.error("Firebase init error in standalone:", e);
+      }
+
+      function setupFirebaseRealtimeSync() {
+        if (!db) return;
+        db.collection("products").onSnapshot((snapshot) => {
+          const tempProducts = [];
+          snapshot.forEach((doc) => {
+            tempProducts.push({ id: doc.id, ...doc.data() });
+          });
+          if (tempProducts.length > 0) {
+            products = tempProducts;
+            saveProductsState();
+            renderCatalogItems();
+            synchronizeAdminConsole();
+          }
+        }, (err) => {
+          console.warn("Realtime firestore listener skipped/denied (rules checking):", err);
+        });
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        loadStorageData();
+        renderStoreTabs();
+        renderCatalogItems();
+        synchronizeAdminConsole();
+        lucide.createIcons();
+        setupFirebaseRealtimeSync();
+      });
+
+      // Synchronize Cache storage logs
+      function loadStorageData() {
+        const cachedProd = localStorage.getItem('acc_products');
+        if (cachedProd) {
+          try {
+            products = JSON.parse(cachedProd);
+          } catch(e) {
+            products = [...DEFAULT_PRODUCTS_LIST];
+          }
+        } else {
+          products = [...DEFAULT_PRODUCTS_LIST];
+          localStorage.setItem('acc_products', JSON.stringify(DEFAULT_PRODUCTS_LIST));
+        }
+
+        const cachedOrders = localStorage.getItem('acc_orders');
+        if (cachedOrders) {
+          try {
+            orders = JSON.parse(cachedOrders);
+          } catch(e) {
+            orders = [];
+          }
+        } else {
+          orders = [];
+          localStorage.setItem('acc_orders', JSON.stringify([]));
+        }
+
+        const cachedBasket = localStorage.getItem('acc_basket');
+        if (cachedBasket) {
+          try {
+            basket = JSON.parse(cachedBasket);
+          } catch(e) {
+            basket = [];
+          }
+        } else {
+          basket = [];
+        }
+        updateBasketBadge();
+      }
+
+      // Save states
+      function saveProductsState() {
+        localStorage.setItem('acc_products', JSON.stringify(products));
+      }
+      function saveOrdersState() {
+        localStorage.setItem('acc_orders', JSON.stringify(orders));
+      }
+      function saveBasketState() {
+        localStorage.setItem('acc_basket', JSON.stringify(basket));
+      }
+
+      // 4. RENDERS THE CATEGORY TABS AS SEEN IN APP.TS
+      function renderStoreTabs() {
+        const tabContainer = document.getElementById('category-tabs');
+        tabContainer.innerHTML = '';
+
+        const categories = ['All', 'Cakes', 'Pastries', 'Cookies', 'Cupcakes'];
+        
+        categories.forEach(cat => {
+          const btn = document.createElement('button');
+          btn.id = `tab-button-${cat}`;
+          btn.onclick = () => filterCategorySelection(cat);
+          
+          if (cat === activeStoreCategory) {
+            btn.className = "px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full bg-brand-dark text-white shadow-md transition-all";
+          } else {
+            btn.className = "px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full bg-white text-brand-dark/70 border border-brand-dark/5 hover:bg-brand-lightpink/30 hover:text-brand-dark transition-all cursor-pointer";
+          }
+          
+          let flexString = cat;
+          if (cat === 'All') flexString = '🌟 All Baked Treats';
+          else if (cat === 'Cakes') flexString = '🎂 Designer Cakes';
+          else if (cat === 'Pastries') flexString = '🍓 Fresh Pastries';
+          else if (cat === 'Cookies') flexString = '🍪 Gourmet Cookies';
+          else if (cat === 'Cupcakes') flexString = '🧁 Little Cupcakes';
+          
+          btn.innerText = flexString;
+          tabContainer.appendChild(btn);
+        });
+      }
+
+      // 5. RENDERS DISHES FROM DYNAMIC PRODUCT GRID
+      function renderCatalogItems() {
+        const grid = document.getElementById('product-grid');
+        grid.innerHTML = '';
+
+        const filtered = activeStoreCategory === 'All'
+          ? products
+          : products.filter(p => p.category === activeStoreCategory);
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="col-span-full text-center py-16 space-y-3">
+              <div class="text-4xl">🧁</div>
+              <h4 class="font-serif font-bold text-lg text-brand-dark">No custom treats found under this list</h4>
+              <p class="text-xs text-brand-dark/50">Reset store databases from Studio Console above or add items to trigger view.</p>
+            </div>
+          `;
+          return;
+        }
+
+        filtered.forEach(p => {
+          const card = document.createElement('div');
+          card.className = "bg-white rounded-[36px] border border-brand-dark/5 overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-300 flex flex-col group animate-slide-up";
+          
+          card.innerHTML = `
+            <div class="relative aspect-square w-full overflow-hidden bg-brand-lightpink/20">
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" onError="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80'" referrerPolicy="no-referrer">
+              ${p.popular ? `<div class="absolute top-4 left-4 bg-brand-pink text-white font-sans text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow">★ Bestseller</div>` : ''}
+              
+              <!-- Transparent floating category bubble -->
+              <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-white/40 shadow text-xs font-mono font-bold text-brand-rose">
+                ${p.category === 'Cakes' ? `₹${p.pricePerPound}/lb` : `₹${p.pricePerPound}/pc`}
+              </div>
+            </div>
+
+            <!-- Content elements -->
+            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+              <div class="space-y-1.5">
+                <span class="text-[9px] font-black uppercase tracking-widest text-[#D65D7A] block">${p.category}</span>
+                <h3 class="font-serif font-bold text-brand-dark text-base sm:text-lg line-clamp-1 group-hover:text-brand-rose transition-colors">${p.name}</h3>
+                <p class="text-[11px] text-brand-dark/65 font-medium leading-relaxed line-clamp-2">${p.description}</p>
+              </div>
+
+              <button onclick="openCustomizeModal('${p.id}')" class="w-full bg-brand-lightpink hover:bg-brand-pink text-brand-rose hover:text-white font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer shadow-inner">
+                <i data-lucide="cake" class="w-3.5 h-3.5"></i>
+                <span>Order Now</span>
+              </button>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+
+        lucide.createIcons();
+      }
+
+      // Tab Filtering Actions
+      function filterCategorySelection(cat) {
+        activeStoreCategory = cat;
+        renderStoreTabs();
+        renderCatalogItems();
+      }
+
+      // 6. DETAILED CUSTOMIZATION MODAL ENGINE
+      function openCustomizeModal(pId) {
+        const prod = products.find(p => p.id === pId);
+        if (!prod) return;
+        selectedProductConfig = prod;
+
+        // Populate titles & description
+        document.getElementById('modal-product-name').innerText = prod.name;
+        document.getElementById('modal-product-desc').innerText = prod.description;
+        document.getElementById('modal-product-category').innerText = prod.category;
+        document.getElementById('modal-product-img').src = prod.image;
+
+        // Populate flavors dropdown selection list
+        const flavorSelect = document.getElementById('modal-flavor');
+        flavorSelect.innerHTML = '';
+        prod.flavors.forEach(flavor => {
+          const opt = document.createElement('option');
+          opt.value = flavor;
+          opt.innerText = flavor;
+          flavorSelect.appendChild(opt);
+        });
+
+        // Toggle configurations based on core Categories rules
+        const weightSelector = document.getElementById('weight-selector-block');
+        const cakeMsgBlock = document.getElementById('cake-message-block');
+        const weightLabel = document.getElementById('weight-label');
+
+        if (prod.category === 'Cakes') {
+          weightSelector.style.display = 'block';
+          cakeMsgBlock.style.display = 'block';
+          weightLabel.innerText = "Custom Cake Size (Pounds) *";
+          document.getElementById('modal-pound').value = "1";
+        } else {
+          weightSelector.style.display = 'none';
+          cakeMsgBlock.style.display = 'none';
+          weightLabel.innerText = '';
+          document.getElementById('modal-pound').value = "1"; // Default unit factor
+        }
+
+        // Reset general values
+        document.getElementById('modal-qty').value = "1";
+        document.getElementById('modal-eggless').checked = false;
+        document.getElementById('modal-message').value = '';
+
+        calculateModalPrice();
+
+        // Control animation & visible status toggles
+        const overlay = document.getElementById('customize-modal-overlay');
+        const panel = document.getElementById('customize-modal-panel');
+        overlay.classList.remove('pointer-events-none', 'opacity-0');
+        overlay.classList.add('opacity-100');
+        panel.classList.remove('scale-95', 'opacity-0');
+        panel.classList.add('scale-100', 'opacity-100', 'animate-scale-up');
+      }
+
+      function closeCustomizeModal() {
+        const overlay = document.getElementById('customize-modal-overlay');
+        const panel = document.getElementById('customize-modal-panel');
+        overlay.classList.add('pointer-events-none', 'opacity-0');
+        overlay.classList.remove('opacity-100');
+        panel.classList.add('scale-95', 'opacity-0');
+        panel.classList.remove('scale-100', 'opacity-100', 'animate-scale-up');
+        selectedProductConfig = null;
+      }
+
+      function calculateModalPrice() {
+        if (!selectedProductConfig) return;
+        
+        const weightPound = parseFloat(document.getElementById('modal-pound').value) || 1;
+        const qty = parseInt(document.getElementById('modal-qty').value) || 1;
+        const isEggless = document.getElementById('modal-eggless').checked;
+
+        // Base price evaluation depending on Pound multiplication (ONLY for Cakes category type)
+        let singleBaseCost = selectedProductConfig.pricePerPound;
+        if (selectedProductConfig.category === 'Cakes') {
+          singleBaseCost = selectedProductConfig.pricePerPound * weightPound;
+        }
+
+        // Add pure eggless isolated baking surcharge (50 rupees per item product quantity)
+        if (isEggless) {
+          singleBaseCost += 50;
+        }
+
+        const grandModalTotal = singleBaseCost * qty;
+        document.getElementById('modal-price').innerText = `₹${grandModalTotal}`;
+      }
+
+      // Add to Shopping cart basket payload
+      function addModalItemToCart() {
+        if (!selectedProductConfig) return;
+
+        const flavorSelected = document.getElementById('modal-flavor').value;
+        const weightPound = parseFloat(document.getElementById('modal-pound').value) || 1;
+        const qty = parseInt(document.getElementById('modal-qty').value) || 1;
+        const isEggless = document.getElementById('modal-eggless').checked;
+        const writingMsg = document.getElementById('modal-message').value.trim();
+
+        // Recalculating totals
+        let unitCost = selectedProductConfig.pricePerPound;
+        if (selectedProductConfig.category === 'Cakes') {
+          unitCost = selectedProductConfig.pricePerPound * weightPound;
+        }
+        if (isEggless) {
+          unitCost += 50;
+        }
+
+        const itemGrandPrice = unitCost * qty;
+
+        const orderItem = {
+          id: 'cart-item-' + Date.now() + Math.floor(Math.random() * 100),
+          product: selectedProductConfig,
+          flavor: flavorSelected,
+          weightPound: selectedProductConfig.category === 'Cakes' ? weightPound : null,
+          qty: qty,
+          isEggless: isEggless,
+          writingMsg: writingMsg,
+          price: itemGrandPrice,
+          customImageBase64: '' // Empty for standard items
+        };
+
+        basket.push(orderItem);
+        saveBasketState();
+        updateBasketBadge();
+
+        closeCustomizeModal();
+        showToastNotification(`Added: ${selectedProductConfig.name} to Basket!`, 'check');
+        toggleCartDrawer(true);
+      }
+
+      // 7. DESIGN GENERATION WIZARD ENGINE
+      function openWizardModal() {
+        // Clear old settings
+        document.getElementById('wizard-file-input').value = '';
+        clearWizardImage(null);
+        document.getElementById('wizard-desc').value = '';
+        document.getElementById('wizard-cat').value = 'Cakes';
+        document.getElementById('wizard-pound').value = '1.5';
+        document.getElementById('wizard-flavor').value = 'Chocolate Fudge';
+        document.getElementById('wizard-eggless').checked = false;
+
+        toggleWizardPoundField();
+        calculateWizardPrice();
+
+        const overlay = document.getElementById('wizard-modal-overlay');
+        const panel = document.getElementById('wizard-modal-panel');
+        overlay.classList.remove('pointer-events-none', 'opacity-0');
+        overlay.classList.add('opacity-100');
+        panel.classList.remove('scale-95', 'opacity-0');
+        panel.classList.add('scale-100', 'opacity-100', 'animate-scale-up');
+      }
+
+      function closeWizardModal() {
+        const overlay = document.getElementById('wizard-modal-overlay');
+        const panel = document.getElementById('wizard-modal-panel');
+        overlay.classList.add('pointer-events-none', 'opacity-0');
+        overlay.classList.remove('opacity-100');
+        panel.classList.add('scale-95', 'opacity-0');
+        panel.classList.remove('scale-100', 'opacity-100', 'animate-scale-up');
+      }
+
+      function toggleWizardPoundField() {
+        const category = document.getElementById('wizard-cat').value;
+        const poundBlock = document.getElementById('wizard-pound-block');
+        if (category === 'Cakes') {
+          poundBlock.style.display = 'block';
+        } else {
+          poundBlock.style.display = 'none';
+        }
+        calculateWizardPrice();
+      }
+
+      function previewWizardImage(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          wizardBase64Source = e.target.result;
+          document.getElementById('wizard-preview').src = wizardBase64Source;
+          document.getElementById('wizard-placeholder').classList.add('hidden');
+          document.getElementById('wizard-preview-container').classList.remove('hidden');
+          showToastNotification("Design reference parsed successfully!", "image");
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function clearWizardImage(event) {
+        if(event) event.stopPropagation();
+        wizardBase64Source = '';
+        document.getElementById('wizard-file-input').value = '';
+        document.getElementById('wizard-preview').src = '';
+        document.getElementById('wizard-placeholder').classList.remove('hidden');
+        document.getElementById('wizard-preview-container').classList.add('hidden');
+      }
+
+      function calculateWizardPrice() {
+        const category = document.getElementById('wizard-cat').value;
+        const poundSelection = parseFloat(document.getElementById('wizard-pound').value) || 1.5;
+        const isEggless = document.getElementById('wizard-eggless').checked;
+
+        // Custom designer items default base configurations
+        let baseCost = 0;
+        if (category === 'Cakes') {
+          // Average premium rate for specialized custom tier cake (750 INR per pound)
+          baseCost = 750 * poundSelection;
+        } else if (category === 'Pastries') {
+          baseCost = 150; // Custom pastry rate
+        } else if (category === 'Cookies') {
+          baseCost = 80;  // Custom gourmet cookie item rate
+        } else if (category === 'Cupcakes') {
+          baseCost = 100; // Premium custom cupcake rate
+        }
+
+        // Eggless isolation surcharge for customization (100 INR)
+        if (isEggless) {
+          baseCost += 100;
+        }
+
+        document.getElementById('wizard-price').innerText = `₹${Math.floor(baseCost)}`;
+      }
+
+      function commitWizardToCart() {
+        const descInput = document.getElementById('wizard-desc').value.trim();
+        if (!descInput) {
+          alert("Please describe your visual requirements or design setup details for Chef!");
+          return;
+        }
+
+        const category = document.getElementById('wizard-cat').value;
+        const poundSelection = parseFloat(document.getElementById('wizard-pound').value) || 1.5;
+        const flavor = document.getElementById('wizard-flavor').value;
+        const isEggless = document.getElementById('wizard-eggless').checked;
+
+        if (!wizardBase64Source) {
+          const confirmWithoutImage = confirm("You have not uploaded any design visual photo. Would you still like to proceed with describing custom details and placing the order?");
+          if (!confirmWithoutImage) return;
+        }
+
+        // Re-evaluating cost values
+        let baseCost = 0;
+        if (category === 'Cakes') {
+          baseCost = 750 * poundSelection;
+        } else if (category === 'Pastries') {
+          baseCost = 150;
+        } else if (category === 'Cookies') {
+          baseCost = 80;
+        } else if (category === 'Cupcakes') {
+          baseCost = 100;
+        }
+
+        if (isEggless) {
+          baseCost += 100;
+        }
+
+        const finalPrice = Math.floor(baseCost);
+
+        // Formulate a structured mock product object representing this unique design
+        const mockProduct = {
+          id: 'custom-product-' + Date.now(),
+          name: `Custom Designed ${category}`,
+          description: `Custom request description: "${descInput}"`,
+          pricePerPound: category === 'Cakes' ? 750 : finalPrice,
+          category: category,
+          image: wizardBase64Source || 'https://images.unsplash.com/photo-1519340333755-56e821703b2c?w=600&auto=format&fit=crop&q=80',
+          flavors: [flavor],
+          popular: false
+        };
+
+        const customCartItem = {
+          id: 'cart-item-' + Date.now(),
+          product: mockProduct,
+          flavor: flavor,
+          weightPound: category === 'Cakes' ? poundSelection : null,
+          qty: 1,
+          isEggless: isEggless,
+          writingMsg: `Custom Described Order: ${descInput.substring(0, 45)}...`,
+          price: finalPrice,
+          customImageBase64: wizardBase64Source // Base 64 string stored so user orders it on WhatsApp!
+        };
+
+        basket.push(customCartItem);
+        saveBasketState();
+        updateBasketBadge();
+
+        closeWizardModal();
+        showToastNotification("Your Custom Design has been added to Basket!", "sparkles");
+        toggleCartDrawer(true);
+      }
+
+      // 8. BASKET CART MANAGEMENT DRAWER
+      function toggleCartDrawer(open) {
+        const overlay = document.getElementById('cart-drawer-overlay');
+        const panel = document.getElementById('cart-drawer-panel');
+        if (open) {
+          overlay.classList.remove('pointer-events-none', 'opacity-0');
+          overlay.classList.add('opacity-100');
+          panel.classList.remove('translate-x-full');
+          renderBasketItems();
+        } else {
+          overlay.classList.add('pointer-events-none', 'opacity-0');
+          overlay.classList.remove('opacity-100');
+          panel.classList.add('translate-x-full');
+        }
+      }
+
+      function updateBasketBadge() {
+        const count = basket.reduce((total, item) => total + item.qty, 0);
+        document.getElementById('cart-counter').innerText = count;
+      }
+
+      function renderBasketItems() {
+        const emptyState = document.getElementById('cart-empty-state');
+        const itemsList = document.getElementById('cart-items-list');
+        const checkoutBlock = document.getElementById('cart-checkout-block');
+
+        if (basket.length === 0) {
+          emptyState.style.display = 'block';
+          itemsList.style.display = 'none';
+          checkoutBlock.style.display = 'none';
+          return;
+        }
+
+        emptyState.style.display = 'none';
+        itemsList.style.display = 'block';
+        checkoutBlock.style.display = 'block';
+
+        const listContainer = document.getElementById('cart-items-list');
+        listContainer.innerHTML = '';
+
+        let grandSum = 0;
+
+        basket.forEach(item => {
+          grandSum += item.price;
+          const div = document.createElement('div');
+          div.className = "bg-white p-4 rounded-3xl border border-brand-dark/5 flex items-center space-x-3.5 shadow-sm relative group";
+
+          div.innerHTML = `
+            <img src="${item.product.image}" class="w-16 h-16 rounded-2xl object-cover border border-brand-dark/5 shadow" onError="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80'">
+            <div class="flex-grow space-y-1">
+              <h4 class="font-serif font-bold text-brand-dark text-xs sm:text-sm line-clamp-1">${item.product.name}</h4>
+              
+              <!-- Subtitle details configs -->
+              <div class="flex flex-wrap items-center gap-1.5 text-[9px] font-bold text-brand-dark/50 leading-relaxed font-mono">
+                <span class="bg-brand-cream px-1.5 py-0.5 rounded text-brand-rose">${item.flavor}</span>
+                ${item.weightPound ? `<span class="bg-brand-cream px-1.5 py-0.5 rounded">Wt: ${item.weightPound} lbs</span>` : ''}
+                ${item.isEggless ? `<span class="bg-green-50 text-green-600 px-1.5 py-0.5 rounded">🥚 Vegetarian (No Egg)</span>` : ''}
+              </div>
+
+              ${item.writingMsg ? `<p class="text-[9px] font-serif italic text-brand-rose leading-tight">Write: "${item.writingMsg}"</p>` : ''}
+              
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-xs font-serif font-bold text-brand-rose">₹${item.price}</span>
+                <div class="flex items-center space-x-2">
+                  <button onclick="changeQty('${item.id}', -1)" class="w-5 h-5 bg-brand-cream hover:bg-brand-lightpink text-brand-dark hover:text-brand-rose font-bold text-xs rounded flex items-center justify-center cursor-pointer">-</button>
+                  <span class="text-xs font-mono font-bold">${item.qty}</span>
+                  <button onclick="changeQty('${item.id}', 1)" class="w-5 h-5 bg-brand-cream hover:bg-brand-lightpink text-brand-dark hover:text-brand-rose font-bold text-xs rounded flex items-center justify-center cursor-pointer">+</button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Delete whole item -->
+            <button onclick="deleteBasketItem('${item.id}')" class="absolute top-2 right-2 text-brand-dark/20 hover:text-brand-rose p-1 transition-colors cursor-pointer">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          `;
+          listContainer.appendChild(div);
+        });
+
+        document.getElementById('cart-total-price').innerText = `₹${grandSum}`;
+        lucide.createIcons();
+      }
+
+      function changeQty(itemId, change) {
+        const item = basket.find(it => it.id === itemId);
+        if (!item) return;
+
+        const originalQty = item.qty;
+        const newQty = originalQty + change;
+
+        if (newQty <= 0) {
+          deleteBasketItem(itemId);
+          return;
+        }
+
+        // Determine cost of single unit
+        const singleFactorPrice = item.price / originalQty;
+        item.qty = newQty;
+        item.price = singleFactorPrice * newQty;
+
+        saveBasketState();
+        updateBasketBadge();
+        renderBasketItems();
+        synchronizeAdminConsole();
+      }
+
+      function deleteBasketItem(itemId) {
+        basket = basket.filter(it => it.id !== itemId);
+        saveBasketState();
+        updateBasketBadge();
+        renderBasketItems();
+        showToastNotification("Removed item from cart.", "trash");
+      }
+
+      // 9. WHATSAPP CHEF REDIRECTION GENERATOR
+      function handleCheckoutSubmit(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('cust-name').value.trim();
+        const phone = document.getElementById('cust-phone').value.trim();
+        const address = document.getElementById('cust-address').value.trim();
+        const deliveryDate = document.getElementById('delivery-date').value;
+        const deliveryTime = document.getElementById('delivery-time').value;
+        const chefNotes = document.getElementById('cust-notes').value.trim();
+
+        if (basket.length === 0) {
+          alert("Shopping basket is empty! Please add treats first.");
+          return;
+        }
+
+        let totalBill = 0;
+        let invoiceListText = '';
+
+        basket.forEach((item, index) => {
+          totalBill += item.price;
+          const itemNum = index + 1;
+          
+          invoiceListText += `🎂 *Treat #${itemNum}:* ${item.product.name}%0A`;
+          invoiceListText += `   _Flavor:_ ${item.flavor}%0A`;
+          if (item.weightPound) {
+            invoiceListText += `   _Size:_ ${item.weightPound} lbs%0A`;
+          }
+          invoiceListText += `   _Vege Option:_ ${item.isEggless ? "🚨 100% Eggless (Veg)" : "Regular Standard"}%0A`;
+          if (item.writingMsg) {
+            invoiceListText += `   _Icing Suffix:_ Text: "${item.writingMsg}"%0A`;
+          }
+          invoiceListText += `   _Quantity:_ ${item.qty} Qty x (Price: ₹${item.price})%0A%0A`;
+        });
+
+        // Create a simulated order entry logged in simulated memory so they can see on simulated console tab
+        const simulatedOrder = {
+          id: 'ACC-' + Math.floor(1000 + Math.random() * 9000),
+          customerName: name,
+          customerPhone: phone,
+          address: address,
+          date: deliveryDate,
+          timeSlot: deliveryTime,
+          items: [...basket],
+          totalPrice: totalBill,
+          status: 'Pending',
+          notes: chefNotes || 'None'
+        };
+
+        orders.push(simulatedOrder);
+        saveOrdersState();
+        synchronizeAdminConsole();
+
+        // Standardized WhatsApp API Formatting parameters
+        let textPrompt = `*🍰 AIMAN CREAMY CREATION ORDER RESERVATION*%0A`;
+        textPrompt += `==================================%0A%0A`;
+        textPrompt += `👤 *Customer Details:*%0A`;
+        textPrompt += `👉 *Name:* ${name}%0A`;
+        textPrompt += `👉 *Active WhatsApp Mobile:* ${phone}%0A%0A`;
+        
+        textPrompt += `🏥 *Delivery/Fulfillment Details:*%0A`;
+        textPrompt += `📍 *Delivery Address:* ${address}%0A`;
+        textPrompt += `📅 *Preferred Date:* ${deliveryDate}%0A`;
+        textPrompt += `🕒 *Time Slot:* ${deliveryTime}%0A%0A`;
+        
+        if (chefNotes) {
+          textPrompt += `✍️ *Chef Notes:* ${chefNotes}%0A%0A`;
+        }
+
+        textPrompt += `==================================%0A`;
+        textPrompt += `📦 *Cart Order Breakdown:*%0A%0A`;
+        textPrompt += invoiceListText;
+        textPrompt += `==================================%0A`;
+        textPrompt += `💰 *TOTAL ESTIMATE ESTIMATION BILL:* *₹${totalBill}*%0A%0A`;
+        textPrompt += `_Kindly reply with confirmation slots so the baking schedule is secured immediately. Thanks!_`;
+
+        // Direct WhatsApp redirection API trigger on new tab
+        const supportPhoneNum = '919319812658'; // Chef Aiman's actual registered contact setup
+        const waLinkUrl = `https://api.whatsapp.com/send?phone=${supportPhoneNum}&text=${textPrompt}`;
+        
+        // Clear variables
+        basket = [];
+        saveBasketState();
+        updateBasketBadge();
+        toggleCartDrawer(false);
+
+        showToastNotification("Redirecting safely to WhatsApp Chat... Thank you!", "check");
+        window.open(waLinkUrl, '_blank');
+      }
+
+      // 10. REAL-TIME TOAST ENGINE
+      function showToastNotification(text, iconName) {
+        const toast = document.getElementById('toast');
+        const textElem = document.getElementById('toast-text');
+        const iconElem = document.getElementById('toast-icon');
+
+        textElem.innerText = text;
+        iconElem.setAttribute('data-lucide', iconName || 'check');
+        
+        // Refresh icons list
+        lucide.createIcons();
+
+        // Trigger animations
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 4000);
+      }
+
+      // 11. STANDALONE HTML FILE COPIER AND EXPORTER
+      function downloadHTMLFile() {
+        const completeCode = `<!doctype html>
+<html lang="en">
+${document.documentElement.innerHTML}
+</html>`;
+
+        // Blob setup triggers native browser download triggers
+        const blob = new Blob([completeCode], { type: 'text/html' });
+        const downloadUrl = URL.createObjectURL(blob);
+        const autoTriggerLink = document.createElement('a');
+
+        autoTriggerLink.href = downloadUrl;
+        autoTriggerLink.download = 'Aiman_Creamy_Creation_Storefront.html';
+        document.body.appendChild(autoTriggerLink);
+        autoTriggerLink.click();
+        
+        // Clean references
+        document.body.removeChild(autoTriggerLink);
+        URL.revokeObjectURL(downloadUrl);
+        showToastNotification("Downloaded Standalone HTML file successfully!", "download");
+      }
+
+      // 12. DYNAMIC STUDIO CABINET CONSOLE (ADMIN CONTROLS)
+      function toggleAdminPanel() {
+        const container = document.getElementById('admin-panel-container');
+        if (container.classList.contains('hidden')) {
+          container.classList.remove('hidden');
+          window.location.href = '#admin-panel-container';
+          synchronizeAdminConsole();
+          showToastNotification("Admin Console unlocked successfully!", "shield");
+        } else {
+          container.classList.add('hidden');
+        }
+      }
+
+      function setAdminTab(tab) {
+        adminActiveTab = tab;
+        const tabInv = document.getElementById('admin-tab-inventory');
+        const tabOrd = document.getElementById('admin-tab-orders');
+        const secInv = document.getElementById('admin-inventory-section');
+        const secOrd = document.getElementById('admin-orders-section');
+
+        if (tab === 'inventory') {
+          tabInv.className = "flex-1 py-3 text-xs font-bold uppercase tracking-wider border-b-2 border-brand-rose text-brand-rose";
+          tabOrd.className = "relative flex-1 py-3 text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-brand-dark/60 hover:text-brand-dark";
+          secInv.classList.remove('hidden');
+          secOrd.classList.add('hidden');
+        } else {
+          tabOrd.className = "relative flex-1 py-3 text-xs font-bold uppercase tracking-wider border-b-2 border-brand-rose text-brand-rose";
+          tabInv.className = "relative flex-1 py-3 text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-brand-dark/60 hover:text-brand-dark";
+          secOrd.classList.remove('hidden');
+          secInv.classList.add('hidden');
+          renderAdminOrders();
+        }
+      }
+
+      function synchronizeAdminConsole() {
+        // Counter labels
+        document.getElementById('admin-inventory-counter').innerText = `${products.length} Products`;
+        document.getElementById('admin-orders-badge').innerText = orders.length;
+
+        const tbody = document.getElementById('admin-inventory-tbody');
+        tbody.innerHTML = '';
+
+        products.forEach(p => {
+          const tr = document.createElement('tr');
+          tr.className = "border-b border-brand-cream hover:bg-brand-cream/30 text-stone-800 font-medium";
+
+          tr.innerHTML = `
+            <td class="p-4 flex items-center space-x-3">
+              <img src="${p.image}" class="w-10 h-10 rounded-lg object-cover border" onError="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80'">
+              <div>
+                <strong class="text-[#2B1E17] block font-serif">${p.name}</strong>
+                <span class="text-[9px] text-brand-dark/50 block line-clamp-1">${p.description}</span>
+              </div>
+            </td>
+            <td class="p-4 font-bold text-xs uppercase tracking-wider text-brand-dark/60">${p.category}</td>
+            <td class="p-4 text-right font-mono font-bold text-brand-rose">₹${p.pricePerPound}</td>
+            <td class="p-4 text-center">
+              <button onclick="handleDeleteProductFromAdmin('${p.id}')" class="text-xs text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 font-bold tracking-tight px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer">Delete</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function handleDeleteProductFromAdmin(productId) {
+        if (!confirm("Are you sure you want to delete this custom food catalog entry from memory?")) return;
+        products = products.filter(p => p.id !== productId);
+        saveProductsState();
+        renderCatalogItems();
+        synchronizeAdminConsole();
+        showToastNotification("Catalog item deleted from active list.", "trash");
+      }
+
+      function handleAddNewProduct(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('admin-name').value.trim();
+        const category = document.getElementById('admin-cat').value;
+        const price = Math.floor(parseFloat(document.getElementById('admin-price').value)) || 100;
+        const popular = document.getElementById('admin-popular').value === 'true';
+        const description = document.getElementById('admin-desc').value.trim();
+        let image = document.getElementById('admin-img').value.trim();
+
+        if (!image) {
+          // Fallbacks for realistic visuals
+          if (category === 'Cakes') {
+            image = 'https://images.unsplash.com/photo-1535141192574-5d4897c13636?w=600&auto=format&fit=crop&q=80';
+          } else if (category === 'Pastries') {
+            image = 'https://images.unsplash.com/photo-1551443878-489e72aa847f?w=600&auto=format&fit=crop&q=80';
+          } else if (category === 'Cookies') {
+            image = 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&auto=format&fit=crop&q=80';
+          } else {
+            image = 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&auto=format&fit=crop&q=80';
+          }
+        }
+
+        const newBakedItem = {
+          id: 'dish-' + Date.now(),
+          name: name,
+          description: description,
+          pricePerPound: price,
+          category: category,
+          image: image,
+          flavors: ['Classic Vanilla', 'Signature Chocolate Fudge', 'Butterscotch Caramel'],
+          popular: popular
+        };
+
+        products.unshift(newBakedItem);
+        saveProductsState();
+        
+        // Clear fields
+        document.getElementById('admin-name').value = '';
+        document.getElementById('admin-price').value = '';
+        document.getElementById('admin-desc').value = '';
+        document.getElementById('admin-img').value = '';
+
+        synchronizeAdminConsole();
+        renderCatalogItems();
+        showToastNotification(`Registered ${name} successfully!`, 'check');
+      }
+
+      function renderAdminOrders() {
+        const tbody = document.getElementById('admin-orders-tbody');
+        const emptyState = document.getElementById('admin-orders-empty-state');
+        tbody.innerHTML = '';
+
+        if (orders.length === 0) {
+          emptyState.style.display = 'block';
+          return;
+        }
+
+        emptyState.style.display = 'none';
+
+        orders.forEach(order => {
+          const tr = document.createElement('tr');
+          tr.className = "border-b border-brand-cream hover:bg-brand-cream/30 text-stone-800 font-medium";
+
+          let itemsHtml = '';
+          order.items.forEach(it => {
+            itemsHtml += `<div class="mb-1 leading-normal text-[10px]">
+              • <strong>${it.product.name}</strong> (${it.flavor}) - x${it.qty} Qty
+            </div>`;
+          });
+
+          let statusColor = "bg-yellow-50 text-yellow-600 border-yellow-200";
+          if (order.status === 'Confirmed') statusColor = "bg-blue-50 text-blue-600 border-blue-200";
+          else if (order.status === 'Completed') statusColor = "bg-green-50 text-green-600 border-green-200";
+
+          tr.innerHTML = `
+            <td class="p-4 font-mono font-bold text-brand-rose text-xs">${order.id}</td>
+            <td class="p-4 text-xs">
+              <strong class="text-[#2B1E17] block font-semibold">${order.customerName}</strong>
+              <span class="text-brand-dark/60 block font-mono">${order.customerPhone}</span>
+              <span class="text-brand-dark/40 block leading-tight mt-1 text-[10px]">${order.address}</span>
+            </td>
+            <td class="p-4 text-xs font-semibold">
+              <div class="text-brand-dark">${order.date}</div>
+              <span class="text-brand-dark/50 text-[10px] font-mono">${order.timeSlot}</span>
+            </td>
+            <td class="p-4">${itemsHtml}</td>
+            <td class="p-4 text-right font-mono font-bold text-brand-rose">₹${order.totalPrice}</td>
+            <td class="p-4 text-center">
+              <select onchange="changeSimulatedOrderStatus('${order.id}', this.value)" class="text-[11px] font-bold rounded-lg border p-1.5 focus:outline-none ${statusColor}">
+                <option value="Pending" ${order.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                <option value="Confirmed" ${order.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
+                <option value="Completed" ${order.status === 'Completed' ? 'selected' : ''}>Completed</option>
+              </select>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function changeSimulatedOrderStatus(orderId, nextStatus) {
+        orders = orders.map(o => {
+          if (o.id === orderId) {
+            return { ...o, status: nextStatus };
+          }
+          return o;
+        });
+        saveOrdersState();
+        renderAdminOrders();
+        showToastNotification(`Order Status modified to: ${nextStatus}!`, 'shield');
+      }
+
+      function resetToFactorySettings() {
+        if (!confirm("Are you absolutely confident you want to purge all simulated session caches and restore defaults?")) return;
+        
+        localStorage.removeItem('acc_products');
+        localStorage.removeItem('acc_orders');
+        localStorage.removeItem('acc_basket');
+
+        loadStorageData();
+        renderStoreTabs();
+        renderCatalogItems();
+        synchronizeAdminConsole();
+        showToastNotification("Store data restored successfully!", "award");
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Aiman Creamy Creation",
+  "description": "An elegant, mobile-friendly online bakery and custom cake customization portal. Browse gourmet cakes, pastries, and cookies, customize orders (by weight, flavor, message, and eggless preference), place direct WhatsApp orders, and manage inventory and orders via a secure Admin Panel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

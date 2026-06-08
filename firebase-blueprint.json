@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Baking catalog entry representing cakes, pastries, cookies, and sweet pastry treats.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "pricePerPound": { "type": "number" },
+        "pricePerKg": { "type": "number" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "flavors": {
+          "type": "array"
+        },
+        "popular": { "type": "boolean" }
+      },
+      "required": ["id", "name", "category", "pricePerPound", "image", "flavors"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Bakery purchase order placed by a customer.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "deliveryDate": { "type": "string" },
+        "deliveryTime": { "type": "string" },
+        "totalPrice": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "paymentStatus": { "type": "string" }
+      },
+      "required": ["id", "customerName", "phone", "address", "deliveryDate", "deliveryTime", "totalPrice", "status", "createdAt", "paymentMethod", "paymentStatus"]
+    },
+    "ShopSettings": {
+      "title": "ShopSettings",
+      "description": "Store hours, seasonal settings, and custom product pricings.",
+      "type": "object",
+      "properties": {
+        "isOpen": { "type": "boolean" },
+        "supportPhone": { "type": "string" },
+        "studioAddress": { "type": "string" },
+        "blockedDates": {
+          "type": "array"
+        }
+      },
+      "required": ["isOpen", "supportPhone", "studioAddress"]
+    }
+  },
+  "firestore": {
+    "products/{productId}": {
+      "schema": "Product",
+      "description": "Boutique catalog available to customers."
+    },
+    "orders/{orderId}": {
+      "schema": "Order",
+      "description": "Database of client invoices and custom design cake submissions."
+    },
+    "settings/shop_settings": {
+      "schema": "ShopSettings",
+      "description": "Single-document system settings containing business coordinates and custom base rates."
+    }
+  }
+}
